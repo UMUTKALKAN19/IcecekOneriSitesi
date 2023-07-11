@@ -1,0 +1,13 @@
+﻿@model IEnumerable<IcecekOneriSitesi.Models.Icecek>
+
+@foreach (var x in Model)
+{
+    <div class="box1">
+        <h1>@x.IcecekAd</h1>
+        <img src="@x.IcecekResim" alt="Alternate Text" width="500px" height="500px" />
+        <div>Malzemeler : @x.IcecekMalzeme</div>
+        <div>Yapılışı : @x.IcecekTarif.</div>
+        <div>Eklenme Tarihi : @x.IcecekTarih.</div>
+        <button class="btn btn-info"><a href="/YorumYap/Index/@x.IcecekID/">Yorumlar</a></button>
+    </div>
+}

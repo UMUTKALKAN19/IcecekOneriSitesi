@@ -1,0 +1,36 @@
+﻿@model IcecekOneriSitesi.Models.Yorum
+@{
+    ViewData["Title"] = "YorumlarGet";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>@ViewBag.ad</h1>
+
+<br />
+
+@using (Html.BeginForm("YorumGüncelle", "Yorumlar", FormMethod.Post))
+{
+    @Html.Label("İçecek ID")
+    @Html.TextBoxFor(x => x.IcecekID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yorum ID")
+    @Html.TextBoxFor(x => x.YorumID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yorum Gönderen")
+    @Html.TextBoxFor(x => x.YorumSahip, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yorum Mail")
+    @Html.TextBoxFor(x => x.YorumMail, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yorum Onay")
+    @Html.TextBoxFor(x => x.YorumOnay, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yorum İçerik")
+    @Html.TextAreaFor(x => x.YorumIcerik, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mesaj Tarih")
+    @Html.TextBoxFor(x => x.YorumTarih, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-success">Güncelle</button>
+}

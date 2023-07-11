@@ -1,0 +1,28 @@
+﻿@model List<IcecekOneriSitesi.Models.Yorum>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WebSiteLayout.cshtml";
+}
+
+<h1>Yorumlar</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ad</th>
+        <th>İçerik</th>
+        <th>Mail</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.YorumSahip</td>
+            <td>@x.YorumIcerik</td>
+            <td>@x.YorumMail</td>
+            <td>@x.YorumTarih</td>
+        </tr>
+    }
+</table>
+<a href="/YorumYap/YorumEkle/@ViewBag.id/" class="btn btn-primary">Yorum yap</a>
+

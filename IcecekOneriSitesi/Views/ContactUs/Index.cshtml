@@ -1,0 +1,73 @@
+﻿@model IcecekOneriSitesi.Models.Mesajlar
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WebSiteLayout.cshtml";
+}
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <div class="box1">
+
+                    <h1>İletişim Adresi</h1>
+
+                    <h4>
+                        İçecek Öneri Sitesi
+                    </h4>
+
+                    <p>
+                        İsmetpaşa Mahallesi,<br>
+                        Merkez Bilecik<br>
+                        Telephone: +90 531 990 1234<br>
+                        E-mail: <a href="#">umutkalkan19@gmail.com</a>
+                    </p>
+
+                    <h2>Mesaj Formu</h2>
+                    @using (Html.BeginForm("YorumEkle", "ContactUs", FormMethod.Post))
+                    {
+                        <div id="note"></div>
+                        <div id="fields">
+                            <form id="ajax-contact-form" class="form-horizontal" action="javascript:alert('success!');">
+                                <div class="block1 clearfix">
+                                    <div class="block3">
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputName">Ad Soyad:</label>
+                                            <div class="controls">
+                                                @Html.TextBoxFor(x => x.MesajGonderen, new { @style = "width:350px; ", @class = "form-control" })
+                                                @Html.ValidationMessageFor(x=>x.MesajGonderen,"",new {@style="color:red"})
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputEmail">Mail:</label>
+                                            <div class="controls">
+                                                @Html.TextBoxFor(x => x.MesajMail, new { @style = "width:350px; ", @class = "form-control" })
+                                                @Html.ValidationMessageFor(x => x.MesajMail, "", new { @style = "color:red" })
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputPhone">Mesaj Başlık:</label>
+                                            <div class="controls">
+                                                @Html.TextBoxFor(x => x.MesajBaslik, new { @style = "width:350px; ", @class = "form-control" })
+                                                @Html.ValidationMessageFor(x => x.MesajBaslik, "", new { @style = "color:red" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="block4">
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputMessage">Mesaj:</label>
+                                            <div class="controls">
+                                                @Html.TextAreaFor(x => x.MesajIcerik, new { @style = "width:650px; height:150px;", @class = "form-control" })
+                                                @Html.ValidationMessageFor(x => x.MesajIcerik, "", new { @style = "color:red" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success">Gönder<em></em></button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

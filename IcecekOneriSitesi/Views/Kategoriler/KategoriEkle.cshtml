@@ -1,0 +1,17 @@
+﻿@model IcecekOneriSitesi.Models.Kategori
+@{
+    ViewData["Title"] = "KategoriEkle";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Kategori Ekleme Sayfası</h1>
+<br />
+
+@using (Html.BeginForm("KategoriEkle", "Kategoriler", FormMethod.Post))
+{
+    @Html.Label("Kategori Ad")
+    @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.KategoriAd,"",new {@style="color:red"})
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+}

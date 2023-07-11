@@ -1,0 +1,33 @@
+﻿@model List<IcecekOneriSitesi.Models.Kategori> 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Kategoriler Listesi</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Adet</th>
+        <th>Açıklama</th>
+        <th>Durum</th>
+        <th>Onay</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.KategoriID</th>
+            <td>@x.KategoriAd</td>
+            <td>@x.KategoriAdet</td>
+            <td>@x.KategoriAciklama</td>
+            <td>@x.KategoriDurum</td>
+            <td><a href="/Kategoriler/KategoriDurumTrue/@x.KategoriID/" class="btn btn-primary">Onay</a> <a href="/Kategoriler/KategoriDurumFalse/@x.KategoriID/" class="btn btn-danger">Red</a></td>
+            <td><a href="/Kategoriler/KategoriGet/@x.KategoriID/" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Kategoriler/KategoriEkle/" class="btn btn-primary">Yeni Kategori</a>

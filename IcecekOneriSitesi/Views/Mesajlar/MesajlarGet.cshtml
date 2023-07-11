@@ -1,0 +1,31 @@
+﻿@model IcecekOneriSitesi.Models.Mesajlar
+@{
+    ViewData["Title"] = "MesajlarGet";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Mesaj Detay Sayfası</h1>
+<br />
+
+@using (Html.BeginForm("KategoriGüncelle", "Kategoriler", FormMethod.Post))
+{
+    @Html.Label("Mesaj ID")
+    @Html.TextBoxFor(x => x.MesajID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mesaj Ad")
+    @Html.TextBoxFor(x => x.MesajGonderen, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mesaj Mail")
+    @Html.TextBoxFor(x => x.MesajMail, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mesaj Başlık")
+    @Html.TextBoxFor(x => x.MesajBaslik, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mesaj İçerik")
+    @Html.TextAreaFor(x => x.MesajIcerik, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mesaj Tarih")
+    @Html.TextBoxFor(x => x.MesajTarih, new { @class = "form-control" })
+    <br />
+}
+

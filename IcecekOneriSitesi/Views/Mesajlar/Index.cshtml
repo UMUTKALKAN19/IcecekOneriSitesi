@@ -1,0 +1,34 @@
+﻿@model List<IcecekOneriSitesi.Models.Mesajlar>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Mesajlar Listesi</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Gönderen</th>
+        <th>Başlık</th>
+        <th>Mail</th>
+        <th>Tarih</th>
+        <th>İçerik</th>
+        <th>Detay</th>
+        <th>Yayınla</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.MesajID</th>
+            <td>@x.MesajGonderen</td>
+            <td>@x.MesajBaslik</td>
+            <td>@x.MesajMail</td>
+            <td>@x.MesajTarih</td>
+            <td>@x.MesajIcerik</td>
+            <td><a href="/Mesajlar/MesajlarGet/@x.MesajID/" class="btn btn-info">Detay</a></td>
+            <td><a href="/Mesajlar/MesajSil/@x.MesajID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>

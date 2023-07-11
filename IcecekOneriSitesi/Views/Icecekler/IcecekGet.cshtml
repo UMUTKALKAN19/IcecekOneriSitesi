@@ -1,0 +1,35 @@
+﻿@model IcecekOneriSitesi.Models.Icecek
+@{
+    ViewData["Title"] = "IcecekGet";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Icecek Güncelleme Sayfası</h1>
+<br />
+
+@using (Html.BeginForm("IcecekGuncelle", "Icecekler", FormMethod.Post))
+{
+    @Html.Label("İçecek ID")
+    @Html.TextBoxFor(x => x.IcecekID, new { @class = "form-control" })
+    <br />
+    @Html.Label("İçecek Ad")
+    @Html.TextBoxFor(x => x.IcecekAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("İçecek Malzeme")
+    @Html.TextBoxFor(x => x.IcecekMalzeme, new { @class = "form-control" })
+    <br />
+    @Html.Label("İçecek Tarif")
+    @Html.TextAreaFor(x => x.IcecekTarif, new { @class = "form-control" })
+    <br />
+    @Html.Label("İçecek Çeşit")
+    @Html.TextBoxFor(x => x.IcecekCesit, new { @class = "form-control" })
+    <br />
+    @Html.Label("Resim URL")
+    @Html.TextBoxFor(x => x.IcecekResim, new { @class = "form-control" })
+    <br />
+    @Html.Label("İçecek Kategori")
+    //@Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+    <button class="btn btn-success">Kaydet</button>
+}
+

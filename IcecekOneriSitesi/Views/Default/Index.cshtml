@@ -1,0 +1,97 @@
+﻿@model List<IcecekOneriSitesi.Models.Icecek>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WebSiteLayout.cshtml";
+}
+
+<head>
+    <title>our cakes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="Your name">
+    <link rel="icon" href="~/web/html/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="~/web/html/images/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="~/web/html/css/bootstrap.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/web/html/css/bootstrap-responsive.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/web/html/css/isotope.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/web/html/css/touchTouch.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/web/html/css/style.css" type="text/css" media="screen">
+
+    <script type="text/javascript" src="~/web/html/js/jquery.js"></script>
+    <script type="text/javascript" src="~/web/html/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="~/web/html/js/superfish.js"></script>
+
+    <script type="text/javascript" src="~/web/html/js/jquery.ui.totop.js"></script>
+
+    <script type="text/javascript" src="~/web/html/js/touchTouch.jquery.js"></script>
+    <script type="text/javascript" src="~/web/html/js/jquery.isotope.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            //
+
+        }); //
+        $(window).load(function () {
+            // isotop
+            var $container = $('#isotope-items'),
+                $optionSet = $('#isotope-options'),
+                $optionSets = $('#isotope-filters'),
+                $optionLinks = $optionSets.find('a');
+            $container.isotope({
+                filter: '*',
+                layoutMode: 'fitRows'
+            });
+            $optionLinks.click(function () {
+                var $this = $(this);
+                // don't proceed if already selected
+                if ($this.hasClass('selected')) {
+                    return false;
+                }
+                $optionSet.find('.selected').removeClass('selected');
+                $this.addClass('selected');
+
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector
+                });
+                return false;
+            });
+            $(window).on("resize", function (event) {
+                $container.isotope('reLayout');
+            });
+
+            // touchTouch
+            $('.thumb-isotope .thumbnail a').touchTouch();
+
+        }); //
+    </script>
+    <!--[if lt IE 8]>
+            <div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"alt=""/></a></div>
+        <![endif]-->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+    <![endif]-->
+</head>
+
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="box1">
+
+                    <h1>İçecekler</h1>
+
+                    @await Component.InvokeAsync("KategoriGetList")
+
+                    <ul class="thumbnails thumbnails-iisotope" id="isotope-items">
+                    @await Component.InvokeAsync("IcecekGetList")
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

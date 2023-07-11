@@ -1,0 +1,41 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+ 
+@model IPagedList<IcecekOneriSitesi.Models.Icecek>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Icecekler Listesi</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Malzeme</th>
+        <th>Tarif</th>
+        <th>Tarih</th>
+        <th>Çeşit</th>
+        <th>Kategori</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model) {
+    <tr>
+        <th>@x.IcecekID</th>
+        <td>@x.IcecekAd</td>
+        <td>@x.IcecekMalzeme</td>
+        <td>@x.IcecekTarif</td>
+        <td>@x.IcecekTarih</td>
+        <td>@x.IcecekCesit</td>
+        <td>@x.Kategori.KategoriAd</td>
+        <td><a href ="/Icecekler/IcecekSil/@x.IcecekID" class="btn btn-danger">Sil</a></td>
+        <td><a href ="/Icecekler/IcecekGet/@x.IcecekID" class="btn btn-success">Güncelle</a></td>
+    </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index", new { page}))
+<a href="/Icecekler/IcecekEkle/" class="btn btn-primary">Yeni İçecek</a>
+

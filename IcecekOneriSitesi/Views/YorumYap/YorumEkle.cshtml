@@ -1,0 +1,28 @@
+﻿@model IcecekOneriSitesi.Models.Yorum
+@{
+    ViewData["Title"] = "YorumEkle";
+    Layout = "~/Views/Shared/_WebSiteLayout.cshtml";
+}
+
+<h1>Yorum Yapma Sayfası</h1>
+<br />
+@using (Html.BeginForm("YorumEkle", "YorumYap", FormMethod.Post))
+{
+    @Html.Label("İçecek ID")
+    @Html.TextBoxFor(x => x.IcecekID, new { @readonly = true, @Value = ViewBag.id })
+    <br />
+    @Html.Label("Ad-Soyad")
+    @Html.TextBoxFor(x => x.YorumSahip, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.YorumSahip, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x => x.YorumMail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.YorumMail, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Yorumunuz")
+    @Html.TextAreaFor(x => x.YorumIcerik, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.YorumIcerik, "", new { @style = "color:red" })
+    <br />
+
+    <button class="btn btn-success">Yorum Yap</button>
+}

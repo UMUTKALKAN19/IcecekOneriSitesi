@@ -1,0 +1,25 @@
+﻿@model IEnumerable<IcecekOneriSitesi.Models.Kategori>
+
+    <div style="padding-bottom:10px">
+        <table class="table table-bordered" style="width:15px;">
+            <tr>
+                <th style="text-align: center; padding-left: 25px; padding-right: 25px; background-color: #92664c; ">
+                    <a href="/Default/Index/">
+                        <font color="#f9e9cb">
+                            Tümü
+                        </font>
+                    </a>
+                </th>
+                @foreach (var x in Model)
+                {
+                    <th style="text-align: center; padding-left: 25px; padding-right: 25px; background-color: #92664c; ">
+                        <a href="/Default/KategoriDetay/@x.KategoriID">
+                            <font color="#f9e9cb">
+                                @x.KategoriAd
+                            </font>
+                        </a>
+                    </th>
+                }
+            </tr>
+        </table>
+    </div>

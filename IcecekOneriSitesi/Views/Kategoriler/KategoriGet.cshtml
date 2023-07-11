@@ -1,0 +1,25 @@
+﻿@model IcecekOneriSitesi.Models.Kategori
+@{
+    ViewData["Title"] = "KategoriGet";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Kategori Güncelleme Sayfası</h1>
+<br />
+
+@using (Html.BeginForm("KategoriGüncelle", "Kategoriler", FormMethod.Post))
+{
+    @Html.Label("Kategori ID")
+    @Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori Ad")
+    @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori Adet")
+    @Html.TextBoxFor(x => x.KategoriAdet, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori Açıklama")
+    @Html.TextBoxFor(x => x.KategoriAciklama, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+}

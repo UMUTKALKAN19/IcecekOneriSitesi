@@ -1,0 +1,20 @@
+﻿@model IEnumerable<IcecekOneriSitesi.Models.Icecek>
+
+@foreach (var x in Model)
+{
+
+    <li class="isotope-element isotope-filter1">
+        <div class="thumb-isotope">
+            <div>
+                <a href="/Default/IcecekListe/@x.IcecekID">
+
+                    <img src="@x.IcecekResim" alt=""><em></em>
+
+                    <div class="caption">
+                        @x.IcecekAd
+                    </div>
+                </a>
+            </div>
+        </div>
+    </li>
+}
